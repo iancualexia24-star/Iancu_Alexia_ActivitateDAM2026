@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Seminar 2</string>
+    <string name="hint_adresa_magazin">Adresa magazinului</string>
+
 </resources>

@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Seminar 4</string>
+
+    <string name="main_empty">Niciun magazin adăugat încă</string>
+    <string name="main_add">Adaugă magazin</string>
+    <string name="result_format">Magazin: %1$s\nAdresă: %2$s\nDeschis: %3$s\nCategorie: %4$s\nTip: %5$s\nRating: %6$.1f/5\nLivrare: %7$s</string>
+
+    <string name="add_title">Adaugă un magazin</string>
+    <string name="add_subtitle">Completează detaliile magazinului</string>
+    <string name="label_name">Numele magazinului</string>
+    <string name="hint_name">Exemplu: Magazin Alexia</string>
+    <string name="label_address">Adresa magazinului</string>
+    <string name="hint_address">Introdu adresa</string>
+    <string name="label_open">Magazinul este deschis</string>
+    <string name="label_category">Categorie</string>
+    <string name="cat_food">Alimentar</string>
+    <string name="cat_books">Cărți</string>
+    <string name="label_type">Tipul magazinului</string>
+    <string name="label_rating">Rating</string>
+    <string name="label_delivery">Oferă livrare</string>
+    <string name="button_save">Salvează magazinul</string>
+    <string name="error_name">Introdu numele magazinului</string>
+    <string name="error_address">Introdu adresa magazinului</string>
+    <string name="yes">Da</string>
+    <string name="no">Nu</string>
+
+    <string-array name="tipuri_magazin">
+        <item>Magazin de cartier</item>
+        <item>Supermarket</item>
+        <item>Librărie</item>
+        <item>Magazin online</item>
+    </string-array>
+</resources>
