@@ -2,12 +2,17 @@ package com.example.seminar4;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
+
+    public static ArrayList<Magazin> magazine = new ArrayList<>();
 
     private static final int CERERE_MAGAZIN = 1;
     private TextView rezultatTV;
@@ -18,23 +23,28 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         rezultatTV = findViewById(R.id.tvRezultat);
-        Button adaugaButton = findViewById(R.id.btnAdauga);
+        Button btnAdauga = findViewById(R.id.btnAdauga);
 
-        adaugaButton.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, Adauga_Produs.class);
-            startActivityForResult(intent, CERERE_MAGAZIN);
+        btnAdauga.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(
+                        getApplicationContext(),
+                        Adauga_Produs.class
+                );
+
+                startActivityForResult(intent, CERERE_MAGAZIN);
+            }
         });
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == CERERE_MAGAZIN
-                && resultCode == RESULT_OK
-                && data != null
-                && data.getExtras() != null) {
-
+        if (requestCode == CERERE_MAGAZIN && resultCode == RESULT_OK && data != null && data.getExtras() != null)
+        {
             Bundle date = data.getExtras();
 
             Magazin magazin = new Magazin();
@@ -45,17 +55,17 @@ public class MainActivity extends AppCompatActivity {
             magazin.tip = date.getString("tip", "");
             magazin.rating = date.getFloat("rating");
             magazin.livrare = date.getBoolean("livrare");
-
-            rezultatTV.setText(getString(
-                    R.string.result_format,
-                    magazin.nume,
-                    magazin.adresa,
-                    getString(magazin.deschis ? R.string.yes : R.string.no),
-                    magazin.categorie,
-                    magazin.tip,
-                    magazin.rating,
-                    getString(magazin.livrare ? R.string.yes : R.string.no)
-            ));
+            magazine.add(magazin);
+            rezultatTV.setText(magazin.toString());
         }
+    }
+
+    public void deschideLista(View view) {
+        Intent intent = new Intent(
+                getApplicationContext(),
+                ListaMagazine.class
+        );
+
+        startActivity(intent);
     }
 }
