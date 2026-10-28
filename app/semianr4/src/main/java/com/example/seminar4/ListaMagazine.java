@@ -75,4 +75,7 @@ public class ListaMagazine extends AppCompatActivity {
                 }
         );
     }
+    public void inapoi(View view) {
+        finish();
+    }
 }

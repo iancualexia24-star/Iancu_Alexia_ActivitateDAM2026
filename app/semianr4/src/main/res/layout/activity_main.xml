@@ -26,5 +26,12 @@
         android:layout_marginTop="20dp"
         android:minHeight="52dp"
         android:text="@string/main_add" />
-
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:minHeight="52dp"
+        android:onClick="deschideLista"
+        android:text="Vezi magazinele">
+    </Button>
 </LinearLayout>
